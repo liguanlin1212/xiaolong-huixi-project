@@ -1,10 +1,14 @@
 """Timeline view placeholders for the UI layer."""
 
+from typing import Iterable, List
 
-def render_timeline(nodes):
+from core.types import TimelineNode
+
+
+def render_timeline(nodes: Iterable[TimelineNode]) -> List[str]:
     """Render a list of timeline nodes.
 
     Args:
         nodes: Iterable of timeline node objects.
     """
-    return [getattr(node, "label", str(node)) for node in nodes]
+    return [node.label for node in nodes]

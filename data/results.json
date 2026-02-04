@@ -1,1 +1,10 @@
-[]
+{
+  "version": "1.0.0",
+  "results": [
+    {
+      "id": "sample-001",
+      "label": "unknown",
+      "confidence": 0.0
+    }
+  ]
+}
