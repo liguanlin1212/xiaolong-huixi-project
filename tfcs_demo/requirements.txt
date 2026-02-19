@@ -1,0 +1,14 @@
+# 核心依赖
+onnxruntime
+
+# 文本处理依赖
+numpy
+
+# 可选依赖（用于模型转换和优化）
+onnx
+
+# 测试依赖
+pytest
+pytest-cov
+psutil
+
