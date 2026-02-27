@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认知失败档案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        
+        /* 认知失败档案容器 */
+        .failure-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        /* 档案列表区域 */
+        .archive-list-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .filter-btn.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .archive-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #e74c3c;
+            cursor: pointer;
+        }
+        
+        .archive-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .archive-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .archive-card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .archive-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .status-debunked {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+        }
+        
+        .status-partial {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .status-controversial {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+        
+        /* 档案详情区域 */
+        .archive-detail-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .detail-content {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+        }
+        
+        .detail-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .detail-header h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .detail-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        /* 判断生命周期展示 */
+        .lifecycle-section {
+            margin-bottom: 30px;
+        }
+        
+        .lifecycle-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .lifecycle-timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e0e0e0;
+        }
+        
+        .lifecycle-item {
+            position: relative;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .lifecycle-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background-color: #3498db;
+            border: 2px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+        
+        .lifecycle-item.critical::before {
+            background-color: #e74c3c;
+            box-shadow: 0 0 0 2px #e74c3c;
+        }
+        
+        .lifecycle-item.correction::before {
+            background-color: #27ae60;
+            box-shadow: 0 0 0 2px #27ae60;
+        }
+        
+        .lifecycle-date {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .lifecycle-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .lifecycle-content {
+            font-size: 0.95em;
+            color: #555;
+        }
+        
+        /* 错误成因分析展示 */
+        .error-analysis-section {
+            margin-bottom: 30px;
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .analysis-card {
+            background-color: white;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .analysis-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .analysis-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .analysis-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .tag-information {
+            background-color: #e8f4f8;
+            color: #2980b9;
+        }
+        
+        .tag-emotional {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+        
+        .tag-social {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        /* 修正代价展示 */
+        .cost-section {
+            margin-bottom: 30px;
+        }
+        
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .cost-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .cost-card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .cost-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .cost-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .cost-label {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .cost-value {
+            font-size: 0.95em;
+            color: #555;
+        }
+        
+        .cost-high {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .cost-medium {
+            color: #f39c12;
+            font-weight: 600;
+        }
+        
+        .cost-low {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .archive-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-controls {
+                justify-content: center;
+            }
+            
+            .analysis-grid,
+            .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>认知失败档案</h1>
+            <p class="subtitle">长期保存具有代表性的认知失败案例</p>
+            <div class="nav-buttons" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html" class="btn btn-secondary">返回主页面</a>
+                <a href="timeline.html" class="btn btn-secondary">查看认知演变时间轴</a>
+                <a href="snapshot.html" class="btn btn-secondary">查看世界快照</a>
+            </div>
+        </header>
+        
+        <div class="failure-container">
+            <!-- 档案列表区域 -->
+            <div class="archive-list-section">
+                <h2 class="section-title">认知失败案例列表</h2>
+                <div class="filter-controls">
+                    <button class="filter-btn active" onclick="filterArchives('all')">全部</button>
+                    <button class="filter-btn" onclick="filterArchives('debunked')">已证伪</button>
+                    <button class="filter-btn" onclick="filterArchives('partial')">部分修正</button>
+                    <button class="filter-btn" onclick="filterArchives('controversial')">仍存争议</button>
+                </div>
+                <div class="archive-grid" id="archive-grid">
+                    <!-- 档案卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 档案详情区域 -->
+            <div class="archive-detail-section" id="archive-detail-section" style="display: none;">
+                <h2 class="section-title">档案详情</h2>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 id="detail-title">档案标题</h2>
+                        <div class="detail-info">
+                            <span id="detail-date">时间: 2016-11-03</span>
+                            <span id="detail-duration">持续时间: 7年</span>
+                            <span id="detail-status">状态: 已证伪</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 判断生命周期展示 -->
+                    <div class="lifecycle-section">
+                        <h3 class="section-title" style="font-size: 1.2em;">判断生命周期</h3>
+                        <div class="lifecycle-timeline" id="lifecycle-timeline">
+                            <!-- 生命周期项目将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 错误成因分析展示 -->
+                    <div class="error-analysis-section">
+                        <h3 class="section-title" style="font-size: 1.2em;">错误成因分析</h3>
+                        <div class="analysis-grid" id="analysis-grid">
+                            <!-- 分析卡片将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 修正代价展示 -->
+                    <div class="cost-section">
+                        <h3 class="section-title" style="font-size: 1.2em;">修正代价</h3>
+                        <div class="cost-grid" id="cost-grid">
+                            <!-- 代价卡片将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-secondary" onclick="closeDetail()">关闭详情</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 模拟认知失败档案数据
+        const archiveData = [
+            {
+                id: 1,
+                title: "刘鑫锁门导致江歌死亡",
+                summary: "网络舆论普遍认为刘鑫在案发时锁门，导致江歌无法进入公寓避险，这一判断后来被部分修正。",
+                date: "2016-11-10",
+                duration: "7年",
+                status: "partial",
+                statusText: "部分修正",
+                lifecycle: [
+                    {
+                        date: "2016-11-10",
+                        title: "初始判断形成",
+                        content: "网络舆论开始质疑刘鑫在案发时锁门，认为她对江歌的死亡负有责任。",
+                        type: "initial"
+                    },
+                    {
+                        date: "2017-12-20",
+                        title: "关键证据出现",
+                        content: "东京地方裁判所判决显示，刘鑫的证词与物证存在多处矛盾，但无法确认是否锁门。",
+                        type: "critical"
+                    },
+                    {
+                        date: "2022-12-30",
+                        title: "民事判决修正",
+                        content: "青岛市城阳区人民法院认定刘鑫存在过错，但判决书中并未明确认定锁门行为。",
+                        type: "correction"
+                    },
+                    {
+                        date: "2023-06-15",
+                        title: "二审判决维持",
+                        content: "山东省青岛市中级人民法院二审维持原判，刘鑫需承担民事赔偿责任。",
+                        type: "correction"
+                    }
+                ],
+                analysis: [
+                    {
+                        title: "信息不完整",
+                        content: "案发初期信息有限，媒体和公众基于有限信息做出判断。",
+                        tag: "信息不完整",
+                        tagClass: "tag-information"
+                    },
+                    {
+                        title: "情感驱动",
+                        content: "公众对江歌的同情和对刘鑫的愤怒影响了判断的客观性。",
+                        tag: "情感驱动",
+                        tagClass: "tag-emotional"
+                    },
+                    {
+                        title: "群体极化",
+                        content: "社交媒体上的群体讨论导致观点极化，缺乏理性讨论。",
+                        tag: "群体极化",
+                        tagClass: "tag-social"
+                    }
+                ],
+                cost: {
+                    social: [
+                        { label: "社会信任", value: "高", class: "cost-high" },
+                        { label: "舆论环境", value: "中", class: "cost-medium" }
+                    ],
+                    decision: [
+                        { label: "法律程序", value: "中", class: "cost-medium" },
+                        { label: "司法资源", value: "中", class: "cost-medium" }
+                    ],
+                    cognitive: [
+                        { label: "公众认知", value: "高", class: "cost-high" },
+                        { label: "记忆修正", value: "高", class: "cost-high" }
+                    ]
+                }
+            },
+            {
+                id: 2,
+                title: "陈世峰死刑判决预期",
+                summary: "公众普遍预期陈世峰会被判处死刑，但最终判决为有期徒刑20年，与预期存在较大差距。",
+                date: "2017-12-20",
+                duration: "1年",
+                status: "debunked",
+                statusText: "已证伪",
+                lifecycle: [
+                    {
+                        date: "2016-11-04",
+                        title: "初始判断形成",
+                        content: "基于中国法律对故意杀人罪的量刑标准，公众预期陈世峰会被判处死刑。",
+                        type: "initial"
+                    },
+                    {
+                        date: "2017-12-20",
+                        title: "判决结果公布",
+                        content: "东京地方裁判所判处陈世峰有期徒刑20年，远低于公众预期。",
+                        type: "critical"
+                    },
+                    {
+                        date: "2017-12-22",
+                        title: "专家解释",
+                        content: "法律专家解释日本刑法对死刑的适用标准与中国的差异。",
+                        type: "correction"
+                    }
+                ],
+                analysis: [
+                    {
+                        title: "法律认知差异",
+                        content: "公众基于中国法律预期判决，忽略了日本法律体系的差异。",
+                        tag: "法律认知差异",
+                        tagClass: "tag-information"
+                    },
+                    {
+                        title: "情感预期",
+                        content: "公众对案件的情感投入导致对判决结果有更高预期。",
+                        tag: "情感预期",
+                        tagClass: "tag-emotional"
+                    }
+                ],
+                cost: {
+                    social: [
+                        { label: "公众情绪", value: "高", class: "cost-high" },
+                        { label: "法律信任", value: "低", class: "cost-low" }
+                    ],
+                    decision: [
+                        { label: "外交关系", value: "低", class: "cost-low" },
+                        { label: "法律理解", value: "中", class: "cost-medium" }
+                    ],
+                    cognitive: [
+                        { label: "法律认知", value: "中", class: "cost-medium" },
+                        { label: "文化理解", value: "中", class: "cost-medium" }
+                    ]
+                }
+            },
+            {
+                id: 3,
+                title: "刘鑫完全免责判断",
+                summary: "部分观点认为刘鑫对江歌的死亡完全免责，这一判断后来被法院判决否定。",
+                date: "2022-12-30",
+                duration: "6个月",
+                status: "debunked",
+                statusText: "已证伪",
+                lifecycle: [
+                    {
+                        date: "2016-11-05",
+                        title: "初始判断形成",
+                        content: "部分法律人士认为刘鑫作为室友，对江歌的死亡不承担法律责任。",
+                        type: "initial"
+                    },
+                    {
+                        date: "2022-12-30",
+                        title: "民事判决否定",
+                        content: "青岛市城阳区人民法院判决刘鑫需承担民事赔偿责任，否定完全免责判断。",
+                        type: "critical"
+                    },
+                    {
+                        date: "2023-06-15",
+                        title: "二审确认",
+                        content: "山东省青岛市中级人民法院二审维持原判，确认刘鑫的民事责任。",
+                        type: "correction"
+                    }
+                ],
+                analysis: [
+                    {
+                        title: "法律理解偏差",
+                        content: "对民事责任和刑事责任的界限理解存在偏差。",
+                        tag: "法律理解偏差",
+                        tagClass: "tag-information"
+                    },
+                    {
+                        title: "证据不完整",
+                        content: "初期缺乏完整证据，导致对法律责任的判断不准确。",
+                        tag: "证据不完整",
+                        tagClass: "tag-information"
+                    }
+                ],
+                cost: {
+                    social: [
+                        { label: "受害者权益", value: "高", class: "cost-high" },
+                        { label: "法律公正", value: "中", class: "cost-medium" }
+                    ],
+                    decision: [
+                        { label: "司法程序", value: "中", class: "cost-medium" },
+                        { label: "赔偿执行", value: "中", class: "cost-medium" }
+                    ],
+                    cognitive: [
+                        { label: "法律认知", value: "高", class: "cost-high" },
+                        { label: "责任理解", value: "高", class: "cost-high" }
+                    ]
+                }
+            }
+        ];
+        
+        // 当前选中的档案
+        let currentArchive = null;
+        let currentFilter = 'all';
+        
+        // 初始化页面
+        function initPage() {
+            loadArchives();
+        }
+        
+        // 加载档案列表
+        function loadArchives() {
+            const archiveGrid = document.getElementById('archive-grid');
+            archiveGrid.innerHTML = '';
+            
+            const filteredData = archiveData.filter(item => {
+                if (currentFilter === 'all') return true;
+                return item.status === currentFilter;
+            });
+            
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'archive-card';
+                card.onclick = () => showDetail(item.id);
+                
+                const statusClass = `status-${item.status}`;
+                
+                card.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <p>${item.summary}</p>
+                    <div class="archive-meta">
+                        <span>时间: ${item.date}</span>
+                        <span class="status-badge ${statusClass}">${item.statusText}</span>
+                    </div>
+                `;
+                
+                archiveGrid.appendChild(card);
+            });
+        }
+        
+        // 过滤档案
+        function filterArchives(filter) {
+            currentFilter = filter;
+            
+            // 更新按钮状态
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent === getFilterText(filter)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            loadArchives();
+        }
+        
+        // 获取过滤按钮文本
+        function getFilterText(filter) {
+            const filterMap = {
+                'all': '全部',
+                'debunked': '已证伪',
+                'partial': '部分修正',
+                'controversial': '仍存争议'
+            };
+            return filterMap[filter] || '全部';
+        }
+        
+        // 显示档案详情
+        function showDetail(archiveId) {
+            currentArchive = archiveData.find(item => item.id === archiveId);
+            
+            if (!currentArchive) return;
+            
+            // 更新详情内容
+            document.getElementById('detail-title').textContent = currentArchive.title;
+            document.getElementById('detail-date').textContent = `时间: ${currentArchive.date}`;
+            document.getElementById('detail-duration').textContent = `持续时间: ${currentArchive.duration}`;
+            document.getElementById('detail-status').textContent = `状态: ${currentArchive.statusText}`;
+            
+            // 加载生命周期
+            loadLifecycle();
+            
+            // 加载错误成因分析
+            loadAnalysis();
+            
+            // 加载修正代价
+            loadCost();
+            
+            // 显示详情区域
+            document.getElementById('archive-detail-section').style.display = 'block';
+            
+            // 滚动到详情区域
+            document.getElementById('archive-detail-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 加载生命周期
+        function loadLifecycle() {
+            const timeline = document.getElementById('lifecycle-timeline');
+            timeline.innerHTML = '';
+            
+            currentArchive.lifecycle.forEach(item => {
+                const lifecycleItem = document.createElement('div');
+                lifecycleItem.className = `lifecycle-item ${item.type}`;
+                
+                lifecycleItem.innerHTML = `
+                    <div class="lifecycle-date">${item.date}</div>
+                    <div class="lifecycle-title">${item.title}</div>
+                    <div class="lifecycle-content">${item.content}</div>
+                `;
+                
+                timeline.appendChild(lifecycleItem);
+            });
+        }
+        
+        // 加载错误成因分析
+        function loadAnalysis() {
+            const analysisGrid = document.getElementById('analysis-grid');
+            analysisGrid.innerHTML = '';
+            
+            currentArchive.analysis.forEach(item => {
+                const analysisCard = document.createElement('div');
+                analysisCard.className = 'analysis-card';
+                
+                analysisCard.innerHTML = `
+                    <h4>${item.title}</h4>
+                    <p>${item.content}</p>
+                    <span class="analysis-tag ${item.tagClass}">${item.tag}</span>
+                `;
+                
+                analysisGrid.appendChild(analysisCard);
+            });
+        }
+        
+        // 加载修正代价
+        function loadCost() {
+            const costGrid = document.getElementById('cost-grid');
+            costGrid.innerHTML = '';
+            
+            const costTypes = [
+                { key: 'social', title: '社会代价' },
+                { key: 'decision', title: '决策代价' },
+                { key: 'cognitive', title: '认知代价' }
+            ];
+            
+            costTypes.forEach(type => {
+                const costCard = document.createElement('div');
+                costCard.className = 'cost-card';
+                
+                let costItems = '';
+                currentArchive.cost[type.key].forEach(item => {
+                    costItems += `
+                        <div class="cost-item">
+                            <div class="cost-label">${item.label}</div>
+                            <div class="cost-value ${item.class}">${item.value}</div>
+                        </div>
+                    `;
+                });
+                
+                costCard.innerHTML = `
+                    <h4>${type.title}</h4>
+                    ${costItems}
+                `;
+                
+                costGrid.appendChild(costCard);
+            });
+        }
+        
+        // 关闭详情
+        function closeDetail() {
+            document.getElementById('archive-detail-section').style.display = 'none';
+            currentArchive = null;
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

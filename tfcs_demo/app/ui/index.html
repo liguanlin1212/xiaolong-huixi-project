@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间维度上的事实校正系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* 案件卡片 */
+        .case-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+            grid-column: 1 / -1;
+            margin-bottom: 30px;
+        }
+        
+        .case-header {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .case-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .case-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        .case-content {
+            margin-bottom: 25px;
+        }
+        
+        .case-content p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        /* 功能导航区 */
+        .nav-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .nav-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .nav-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid #3498db;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background-color: #f0f8ff;
+        }
+        
+        .nav-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .nav-card p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* 右侧信息面板 */
+        .info-panel {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 25px;
+            height: fit-content;
+        }
+        
+        .info-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-item h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        
+        .info-item p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-panel {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .case-card {
+                padding: 20px;
+            }
+            
+            .case-title {
+                font-size: 1.5em;
+            }
+            
+            .nav-section {
+                padding: 20px;
+            }
+            
+            .info-panel {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>时间维度上的事实校正系统</h1>
+            <p class="subtitle">记录判断如何被逐步动摇、修正或否定的过程，还原认知演变的真实轨迹</p>
+        </header>
+        
+        <div class="case-card">
+            <div class="case-header">
+                <h2 class="case-title">刘鑫江歌案</h2>
+                <div class="case-meta">
+                    <span>发生时间: 2016年11月3日</span>
+                    <span>案发地点: 日本东京</span>
+                    <span>案件性质: 故意杀人案</span>
+                </div>
+            </div>
+            <div class="case-content">
+                <p>2016年11月3日，中国留学生江歌在日本东京住所外被室友刘鑫的前男友陈世峰杀害。这起案件在中日两国引发广泛关注，网络舆论持续发酵，形成了复杂的认知演变过程。</p>
+                <p>案件从发生到最终判决历经多年，期间公众的认知和判断经历了多次修正和变化。本系统通过时间维度的视角，记录和展示这一过程中的认知演变、当时的主流判断以及认知失败的案例。</p>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- 功能导航区 -->
+            <div class="nav-section">
+                <h2 class="nav-title">核心功能</h2>
+                <div class="nav-cards">
+                    <!-- 时间轴导航 -->
+                    <div class="nav-card">
+                        <h3>认知演变时间轴</h3>
+                        <p>展示刘鑫江歌案中，各种判断如何被逐步动摇、修正或否定的完整过程，呈现认知演变的时间轨迹。</p>
+                        <a href="timeline.html" class="btn">查看时间轴</a>
+                    </div>
+                    
+                    <!-- 世界快照导航 -->
+                    <div class="nav-card">
+                        <h3>非个性化世界快照</h3>
+                        <p>还原不同时间点，社会各界对案件的主流判断和认知状态，展示"当时的世界如何看待它"。</p>
+                        <a href="snapshot.html" class="btn">查看世界快照</a>
+                    </div>
+                    
+                    <!-- 认知失败档案导航 -->
+                    <div class="nav-card">
+                        <h3>认知失败档案</h3>
+                        <p>记录和分析案件中出现的认知失败案例，包括判断的形成、动摇、修正和结案的完整生命周期。</p>
+                        <a href="failure.html" class="btn">查看认知失败档案</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧信息面板 -->
+            <div class="info-panel">
+                <h3 class="info-title">关于本系统</h3>
+                <div class="info-item">
+                    <h4>系统目标</h4>
+                    <p>记录"判断如何失败"的过程，展示认知在时间中的演变轨迹，为理解和反思提供参考。</p>
+                </div>
+                <div class="info-item">
+                    <h4>核心价值</h4>
+                    <p>错误不是异常，而是核心数据。通过记录和分析认知修正的过程，帮助人们更好地理解信息的动态性。</p>
+                </div>
+                <div class="info-item">
+                    <h4>技术特点</h4>
+                    <p>基于时间维度的设计，支持多视角查看，提供交互式的认知演变可视化体验。</p>
+                </div>
+                <div class="info-item">
+                    <h4>使用指南</h4>
+                    <p>通过左侧三个功能入口，您可以从不同角度了解刘鑫江歌案的认知演变过程，探索判断如何被修正的历史。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
