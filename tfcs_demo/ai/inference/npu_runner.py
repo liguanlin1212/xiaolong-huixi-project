@@ -1,8 +1,10 @@
 from typing import Dict, Any
 import os
 import numpy as np
+from .base_runner import BaseAIModelRunner
+from ..config import AIConfig
 
-class NPURunner:
+class NPURunner(BaseAIModelRunner):
     """
     基于 ONNX Runtime 的 NPU 运行器
     """
@@ -14,6 +16,16 @@ class NPURunner:
         )
         self.session = None
         self._initialize_onnx_session()
+    
+    def initialize(self, **kwargs) -> None:
+        """
+        初始化模型运行器
+        
+        参数:
+            **kwargs: 初始化参数
+        """
+        # NPU运行器不需要额外的初始化参数
+        pass
     
     def _initialize_onnx_session(self):
         """
@@ -169,12 +181,28 @@ class NPURunner:
             print(f"ONNX 推理失败: {e}")
             # 发生错误时使用关键词规则分类作为备用
             return self._keyword_based_classification(text)
+    
+    def health_check(self) -> bool:
+        """
+        健康检查，验证模型是否可以正常工作
+        
+        返回:
+            bool: 模型是否健康
+        """
+        try:
+            # 测试关键词分类功能
+            test_result = self._keyword_based_classification("测试文本")
+            return "label" in test_result and "confidence" in test_result
+        except Exception as e:
+            print(f"健康检查失败: {e}")
+            return False
 
 # 主推理函数
-def classify_text(text: str) -> dict:
+def classify_text(text: str, model_name: str = None) -> dict:
     """
     输入：
         text: 舆论文本（str）
+        model_name: 模型名称，默认使用配置中的默认模型
 
     输出：
         {
@@ -182,21 +210,52 @@ def classify_text(text: str) -> dict:
           "confidence": float
         }
     """
-    runner = NPURunner()
+    from .model_factory import ModelFactory
+    
+    config = AIConfig()
+    
+    # 如果未指定模型，使用默认模型
+    if model_name is None:
+        model_name = config.get_default_model()
+    
+    # 创建模型运行器
+    model_config = config.get_model_config(model_name)
+    runner = ModelFactory.create_runner(model_name, **model_config)
+    
+    # 如果创建失败，使用NPU作为备用
+    if not runner:
+        runner = NPURunner()
+    
     return runner.classify_text(text)
 
 # 批处理推理函数（用于提高性能）
-def batch_classify_text(texts: list) -> list:
+def batch_classify_text(texts: list, model_name: str = None) -> list:
     """
     批量分类文本
     
     参数:
         texts: 文本列表
+        model_name: 模型名称，默认使用配置中的默认模型
         
     返回:
         list: 分类结果列表
     """
-    runner = NPURunner()
+    from .model_factory import ModelFactory
+    
+    config = AIConfig()
+    
+    # 如果未指定模型，使用默认模型
+    if model_name is None:
+        model_name = config.get_default_model()
+    
+    # 创建模型运行器
+    model_config = config.get_model_config(model_name)
+    runner = ModelFactory.create_runner(model_name, **model_config)
+    
+    # 如果创建失败，使用NPU作为备用
+    if not runner:
+        runner = NPURunner()
+    
     results = []
     for text in texts:
         result = runner.classify_text(text)
