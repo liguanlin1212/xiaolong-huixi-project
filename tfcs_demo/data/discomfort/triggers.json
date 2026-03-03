@@ -1,0 +1,475 @@
+{
+  "test-event-1": [
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-08.590525",
+      "event_id": "test-event-1",
+      "version_id": "5dfe0bff-4361-4839-82ff-b73933c242c9",
+      "timestamp": "2026-03-03T20:49:08.590530",
+      "discomfort_level": 3,
+      "reason": "测试不适原因",
+      "additional_info": {
+        "具体问题": "测试问题",
+        "建议": "测试建议"
+      },
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:08.591244"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-08.780160",
+      "event_id": "test-event-1",
+      "version_id": "0bd3b868-7489-460c-92f4-340a0c7dc8ac",
+      "timestamp": "2026-03-03T20:49:08.780164",
+      "discomfort_level": 3,
+      "reason": "测试不适原因",
+      "additional_info": {},
+      "status": "processing",
+      "processed_at": "2026-03-03T20:49:08.780829"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-09.506512",
+      "event_id": "test-event-1",
+      "version_id": "43ea19fe-9648-4172-be78-81c412da071c",
+      "timestamp": "2026-03-03T20:49:09.506517",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "processing",
+      "processed_at": "2026-03-03T20:49:09.507337"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-09.668065",
+      "event_id": "test-event-1",
+      "version_id": "67994304-7f54-4d89-8a13-df112655eed5",
+      "timestamp": "2026-03-03T20:49:09.668069",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "processing",
+      "processed_at": "2026-03-03T20:49:09.668836"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-09.830881",
+      "event_id": "test-event-1",
+      "version_id": "828c3ae3-6cbc-4489-9203-a7c5614603a0",
+      "timestamp": "2026-03-03T20:49:09.830887",
+      "discomfort_level": 1,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "processing",
+      "processed_at": "2026-03-03T20:49:09.831687"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-09.996548",
+      "event_id": "test-event-1",
+      "version_id": "1c532b32-725c-435f-b2e9-c40a0e3dcf70",
+      "timestamp": "2026-03-03T20:49:09.996554",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "processing",
+      "processed_at": "2026-03-03T20:49:09.997586"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-38.626181",
+      "event_id": "test-event-1",
+      "version_id": "949ccc90-fbeb-488f-925f-3e88462be2ff",
+      "timestamp": "2026-03-03T20:49:38.626185",
+      "discomfort_level": 3,
+      "reason": "测试不适原因",
+      "additional_info": {
+        "具体问题": "测试问题",
+        "建议": "测试建议"
+      },
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:38.627141"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-38.805114",
+      "event_id": "test-event-1",
+      "version_id": "42190adc-da54-40a0-9906-e6c1d0948dde",
+      "timestamp": "2026-03-03T20:49:38.805119",
+      "discomfort_level": 3,
+      "reason": "测试不适原因",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:38.805913"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-38.967730",
+      "event_id": "test-event-1",
+      "version_id": "36f096e8-56d6-488c-b587-6a2a913a2f93",
+      "timestamp": "2026-03-03T20:49:38.967734",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:38.968523"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-38.972672",
+      "event_id": "test-event-1",
+      "version_id": "36f096e8-56d6-488c-b587-6a2a913a2f93",
+      "timestamp": "2026-03-03T20:49:38.972679",
+      "discomfort_level": 3,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:38.973470"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-38.976354",
+      "event_id": "test-event-1",
+      "version_id": "36f096e8-56d6-488c-b587-6a2a913a2f93",
+      "timestamp": "2026-03-03T20:49:38.976361",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:38.977368"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.124043",
+      "event_id": "test-event-1",
+      "version_id": "4d0e2a96-1a91-41c5-a6c8-b1e0329fb9a6",
+      "timestamp": "2026-03-03T20:49:39.124048",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.125179"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.129603",
+      "event_id": "test-event-1",
+      "version_id": "4d0e2a96-1a91-41c5-a6c8-b1e0329fb9a6",
+      "timestamp": "2026-03-03T20:49:39.129608",
+      "discomfort_level": 3,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.130206"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.133538",
+      "event_id": "test-event-1",
+      "version_id": "4d0e2a96-1a91-41c5-a6c8-b1e0329fb9a6",
+      "timestamp": "2026-03-03T20:49:39.133542",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.134214"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.283981",
+      "event_id": "test-event-1",
+      "version_id": "c12a54c5-e527-4cd7-a382-902261853f1a",
+      "timestamp": "2026-03-03T20:49:39.283986",
+      "discomfort_level": 1,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.284972"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.288589",
+      "event_id": "test-event-1",
+      "version_id": "c12a54c5-e527-4cd7-a382-902261853f1a",
+      "timestamp": "2026-03-03T20:49:39.288597",
+      "discomfort_level": 2,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.289331"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.291984",
+      "event_id": "test-event-1",
+      "version_id": "c12a54c5-e527-4cd7-a382-902261853f1a",
+      "timestamp": "2026-03-03T20:49:39.291990",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.292699"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.296372",
+      "event_id": "test-event-1",
+      "version_id": "c12a54c5-e527-4cd7-a382-902261853f1a",
+      "timestamp": "2026-03-03T20:49:39.296378",
+      "discomfort_level": 4,
+      "reason": "测试不适原因3",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.297315"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-39.300633",
+      "event_id": "test-event-1",
+      "version_id": "c12a54c5-e527-4cd7-a382-902261853f1a",
+      "timestamp": "2026-03-03T20:49:39.300639",
+      "discomfort_level": 5,
+      "reason": "测试不适原因4",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:39.301506"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-40.015885",
+      "event_id": "test-event-1",
+      "version_id": "8d3842a1-51ad-4500-8445-9a342eac5baf",
+      "timestamp": "2026-03-03T20:49:40.015890",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:40.016675"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-40.022006",
+      "event_id": "test-event-1",
+      "version_id": "8d3842a1-51ad-4500-8445-9a342eac5baf",
+      "timestamp": "2026-03-03T20:49:40.022011",
+      "discomfort_level": 3,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:40.022926"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-40.027350",
+      "event_id": "test-event-1",
+      "version_id": "8d3842a1-51ad-4500-8445-9a342eac5baf",
+      "timestamp": "2026-03-03T20:49:40.027355",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:40.028184"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-40.032941",
+      "event_id": "test-event-1",
+      "version_id": "8d3842a1-51ad-4500-8445-9a342eac5baf",
+      "timestamp": "2026-03-03T20:49:40.032949",
+      "discomfort_level": 3,
+      "reason": "测试不适原因3",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:40.033950"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-49-40.038467",
+      "event_id": "test-event-1",
+      "version_id": "8d3842a1-51ad-4500-8445-9a342eac5baf",
+      "timestamp": "2026-03-03T20:49:40.038475",
+      "discomfort_level": 3,
+      "reason": "测试不适原因4",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:49:40.039572"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.035868",
+      "event_id": "test-event-1",
+      "version_id": "7ff36cc4-2503-40e3-87db-af50e7deee70",
+      "timestamp": "2026-03-03T20:50:04.035872",
+      "discomfort_level": 3,
+      "reason": "测试不适原因",
+      "additional_info": {
+        "具体问题": "测试问题",
+        "建议": "测试建议"
+      },
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.037217"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.213240",
+      "event_id": "test-event-1",
+      "version_id": "0ea8fdc0-cedd-4f97-bba8-d8205b943920",
+      "timestamp": "2026-03-03T20:50:04.213244",
+      "discomfort_level": 3,
+      "reason": "测试不适原因",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.214002"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.380056",
+      "event_id": "test-event-1",
+      "version_id": "d2f05b99-d2b0-4b6c-a799-28b2db71c374",
+      "timestamp": "2026-03-03T20:50:04.380061",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.380979"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.384273",
+      "event_id": "test-event-1",
+      "version_id": "d2f05b99-d2b0-4b6c-a799-28b2db71c374",
+      "timestamp": "2026-03-03T20:50:04.384279",
+      "discomfort_level": 3,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.385214"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.389541",
+      "event_id": "test-event-1",
+      "version_id": "d2f05b99-d2b0-4b6c-a799-28b2db71c374",
+      "timestamp": "2026-03-03T20:50:04.389547",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.390596"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.541289",
+      "event_id": "test-event-1",
+      "version_id": "9f18e864-f388-4734-9b53-50cd6154164f",
+      "timestamp": "2026-03-03T20:50:04.541295",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.542923"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.547971",
+      "event_id": "test-event-1",
+      "version_id": "9f18e864-f388-4734-9b53-50cd6154164f",
+      "timestamp": "2026-03-03T20:50:04.547976",
+      "discomfort_level": 3,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.548989"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.554199",
+      "event_id": "test-event-1",
+      "version_id": "9f18e864-f388-4734-9b53-50cd6154164f",
+      "timestamp": "2026-03-03T20:50:04.554207",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.555636"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.706022",
+      "event_id": "test-event-1",
+      "version_id": "00d6badf-aedc-42b7-9375-b5267a15d9f4",
+      "timestamp": "2026-03-03T20:50:04.706028",
+      "discomfort_level": 1,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.707028"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.711161",
+      "event_id": "test-event-1",
+      "version_id": "00d6badf-aedc-42b7-9375-b5267a15d9f4",
+      "timestamp": "2026-03-03T20:50:04.711168",
+      "discomfort_level": 2,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.712211"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.715079",
+      "event_id": "test-event-1",
+      "version_id": "00d6badf-aedc-42b7-9375-b5267a15d9f4",
+      "timestamp": "2026-03-03T20:50:04.715084",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.716283"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.720730",
+      "event_id": "test-event-1",
+      "version_id": "00d6badf-aedc-42b7-9375-b5267a15d9f4",
+      "timestamp": "2026-03-03T20:50:04.720737",
+      "discomfort_level": 4,
+      "reason": "测试不适原因3",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.721844"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.725280",
+      "event_id": "test-event-1",
+      "version_id": "00d6badf-aedc-42b7-9375-b5267a15d9f4",
+      "timestamp": "2026-03-03T20:50:04.725286",
+      "discomfort_level": 5,
+      "reason": "测试不适原因4",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.726492"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.865430",
+      "event_id": "test-event-1",
+      "version_id": "fcabeda6-81ea-4f67-a129-be3424cee6cc",
+      "timestamp": "2026-03-03T20:50:04.865433",
+      "discomfort_level": 3,
+      "reason": "测试不适原因0",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.866541"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.871441",
+      "event_id": "test-event-1",
+      "version_id": "fcabeda6-81ea-4f67-a129-be3424cee6cc",
+      "timestamp": "2026-03-03T20:50:04.871450",
+      "discomfort_level": 3,
+      "reason": "测试不适原因1",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.872953"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.877381",
+      "event_id": "test-event-1",
+      "version_id": "fcabeda6-81ea-4f67-a129-be3424cee6cc",
+      "timestamp": "2026-03-03T20:50:04.877386",
+      "discomfort_level": 3,
+      "reason": "测试不适原因2",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.878478"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.882898",
+      "event_id": "test-event-1",
+      "version_id": "fcabeda6-81ea-4f67-a129-be3424cee6cc",
+      "timestamp": "2026-03-03T20:50:04.882903",
+      "discomfort_level": 3,
+      "reason": "测试不适原因3",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.883848"
+    },
+    {
+      "trigger_id": "trigger_2026-03-03T20-50-04.888515",
+      "event_id": "test-event-1",
+      "version_id": "fcabeda6-81ea-4f67-a129-be3424cee6cc",
+      "timestamp": "2026-03-03T20:50:04.888520",
+      "discomfort_level": 3,
+      "reason": "测试不适原因4",
+      "additional_info": {},
+      "status": "resolved",
+      "processed_at": "2026-03-03T20:50:04.889473"
+    }
+  ]
+}

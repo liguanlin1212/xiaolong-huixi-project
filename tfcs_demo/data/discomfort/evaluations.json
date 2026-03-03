@@ -1,0 +1,148 @@
+{
+  "test-event-1": [
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-38.807994",
+      "trigger_id": "trigger_2026-03-03T20-49-38.805114",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:38.807999",
+      "effectiveness": 4,
+      "comments": "测试评估评论"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-39.128924",
+      "trigger_id": "trigger_2026-03-03T20-49-39.124043",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:39.128932",
+      "effectiveness": 4,
+      "comments": "测试评估评论0"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-39.132742",
+      "trigger_id": "trigger_2026-03-03T20-49-39.129603",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:39.132746",
+      "effectiveness": 4,
+      "comments": "测试评估评论1"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-39.137044",
+      "trigger_id": "trigger_2026-03-03T20-49-39.133538",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:39.137050",
+      "effectiveness": 4,
+      "comments": "测试评估评论2"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-40.021277",
+      "trigger_id": "trigger_2026-03-03T20-49-40.015885",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:40.021285",
+      "effectiveness": 1,
+      "comments": "测试评估评论0"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-40.026588",
+      "trigger_id": "trigger_2026-03-03T20-49-40.022006",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:40.026595",
+      "effectiveness": 2,
+      "comments": "测试评估评论1"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-40.031910",
+      "trigger_id": "trigger_2026-03-03T20-49-40.027350",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:40.031917",
+      "effectiveness": 3,
+      "comments": "测试评估评论2"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-40.037513",
+      "trigger_id": "trigger_2026-03-03T20-49-40.032941",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:40.037519",
+      "effectiveness": 4,
+      "comments": "测试评估评论3"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-49-40.043040",
+      "trigger_id": "trigger_2026-03-03T20-49-40.038467",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:49:40.043047",
+      "effectiveness": 5,
+      "comments": "测试评估评论4"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.216518",
+      "trigger_id": "trigger_2026-03-03T20-50-04.213240",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.216523",
+      "effectiveness": 4,
+      "comments": "测试评估评论"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.547160",
+      "trigger_id": "trigger_2026-03-03T20-50-04.541289",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.547167",
+      "effectiveness": 4,
+      "comments": "测试评估评论0"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.552866",
+      "trigger_id": "trigger_2026-03-03T20-50-04.547971",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.552873",
+      "effectiveness": 4,
+      "comments": "测试评估评论1"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.559448",
+      "trigger_id": "trigger_2026-03-03T20-50-04.554199",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.559454",
+      "effectiveness": 4,
+      "comments": "测试评估评论2"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.870251",
+      "trigger_id": "trigger_2026-03-03T20-50-04.865430",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.870256",
+      "effectiveness": 1,
+      "comments": "测试评估评论0"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.876713",
+      "trigger_id": "trigger_2026-03-03T20-50-04.871441",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.876719",
+      "effectiveness": 2,
+      "comments": "测试评估评论1"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.882273",
+      "trigger_id": "trigger_2026-03-03T20-50-04.877381",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.882279",
+      "effectiveness": 3,
+      "comments": "测试评估评论2"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.887717",
+      "trigger_id": "trigger_2026-03-03T20-50-04.882898",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.887725",
+      "effectiveness": 4,
+      "comments": "测试评估评论3"
+    },
+    {
+      "evaluation_id": "eval_2026-03-03T20-50-04.892834",
+      "trigger_id": "trigger_2026-03-03T20-50-04.888515",
+      "event_id": "test-event-1",
+      "timestamp": "2026-03-03T20:50:04.892840",
+      "effectiveness": 5,
+      "comments": "测试评估评论4"
+    }
+  ]
+}
