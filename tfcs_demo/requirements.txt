@@ -7,6 +7,9 @@ numpy
 # 大模型API依赖
 openai
 
+# 前端依赖
+streamlit
+
 # 可选依赖（用于模型转换和优化）
 onnx
 

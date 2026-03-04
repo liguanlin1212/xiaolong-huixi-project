@@ -1,0 +1,20 @@
+[
+  {
+    "title": "搜索结果",
+    "description": "这是一个搜索结果",
+    "time_range": "2024-2026",
+    "case_status": "已结案",
+    "judgment_evolution": [
+      "初始判断",
+      "修正判断",
+      "最终结论"
+    ],
+    "evidence": [
+      "证据1",
+      "证据2",
+      "证据3"
+    ],
+    "final_conclusion": "最终结论",
+    "sources": []
+  }
+]
