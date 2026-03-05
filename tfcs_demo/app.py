@@ -2,6 +2,10 @@ import streamlit as st
 import time
 from app.ui.search_ui import SearchUI
 from app.ui.explore_ui import ExploreUI
+from app.ui.timeline_view import TimelineView
+from app.ui.snapshot_view import SnapshotView
+from app.ui.false_claims_view import FalseClaimsView
+from app.ui.failure_archive_view import FailureArchiveView
 from search.search_handler import SearchHandler
 from search.search_prompt import SearchPromptBuilder
 from search.search_analyzer import SearchAnalyzer
@@ -43,6 +47,12 @@ class MainApp:
         
         # 探索功能组件
         self.explore_ui = ExploreUI()
+        
+        # 阶段三新组件
+        self.timeline_view = TimelineView()
+        self.snapshot_view = SnapshotView()
+        self.false_claims_view = FalseClaimsView()
+        self.failure_archive_view = FailureArchiveView()
     
     def run(self):
         st.set_page_config(
@@ -52,7 +62,7 @@ class MainApp:
         )
         
         # 导航菜单
-        tab1, tab2, tab3, tab4 = st.tabs(["全网搜索", "事件探索", "自查纠错", "不适感反馈"])
+        tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["全网搜索", "事件探索", "自查纠错", "不适感反馈", "时间轴可视化", "世界快照", "错误说法展示", "认知失败档案"])
         
         with tab1:
             # 显示搜索界面
@@ -214,6 +224,56 @@ class MainApp:
                 st.write("评估统计")
                 st.write(f"总评估次数: {evaluation_stats['total_evaluations']}")
                 st.write(f"平均效果: {evaluation_stats['average_effectiveness']:.2f}")
+        
+        with tab5:
+            # 显示时间轴可视化
+            st.header("时间轴可视化")
+            # 模拟时间轴数据
+            timeline_data = [
+                {
+                    "time": "2016-11-03",
+                    "text": "江歌在东京寓所外遇害",
+                    "narrative": "事件发生",
+                    "confidence": 0.95
+                },
+                {
+                    "time": "2016-11-10",
+                    "text": "刘鑫被质疑锁门",
+                    "narrative": "舆论发酵",
+                    "confidence": 0.75
+                },
+                {
+                    "time": "2017-12-20",
+                    "text": "陈世峰被判有期徒刑20年",
+                    "narrative": "一审判决",
+                    "confidence": 0.98
+                },
+                {
+                    "time": "2022-12-30",
+                    "text": "刘鑫被判赔偿69.6万元",
+                    "narrative": "民事判决",
+                    "confidence": 0.95
+                },
+                {
+                    "time": "2023-06-15",
+                    "text": "二审维持原判",
+                    "narrative": "二审判决",
+                    "confidence": 0.98
+                }
+            ]
+            self.timeline_view.display(timeline_data)
+        
+        with tab6:
+            # 显示非个性化世界快照
+            self.snapshot_view.display()
+        
+        with tab7:
+            # 显示过去30天被证明是错的说法
+            self.false_claims_view.display()
+        
+        with tab8:
+            # 显示认知失败档案
+            self.failure_archive_view.display()
 
 if __name__ == "__main__":
     app = MainApp()
