@@ -1,0 +1,19 @@
+{
+  "default_model": "NPU",
+  "models": {
+    "NPU": {
+      "type": "NPU"
+    },
+    "OPENAI": {
+      "type": "OPENAI",
+      "api_key": "",
+      "model_name": "gpt-4o"
+    },
+    "OLLAMA": {
+      "type": "OLLAMA",
+      "model_name": "qwen3:8b",
+      "base_url": "http://localhost:11434/api",
+      "timeout": 30
+    }
+  }
+}

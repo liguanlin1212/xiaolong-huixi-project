@@ -42,6 +42,12 @@ class AIConfig:
                     "type": "OPENAI",
                     "api_key": os.environ.get("OPENAI_API_KEY", ""),
                     "model_name": "gpt-4o"
+                },
+                "OLLAMA": {
+                    "type": "OLLAMA",
+                    "model_name": "qwen3:8b",
+                    "base_url": "http://localhost:11434/api",
+                    "timeout": 30
                 }
             }
         }

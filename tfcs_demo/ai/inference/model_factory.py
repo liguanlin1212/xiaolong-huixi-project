@@ -2,6 +2,7 @@ from typing import Dict, Type, Optional
 from .base_runner import BaseAIModelRunner
 from .npu_runner import NPURunner
 from .openai_runner import OpenAIModelRunner
+from .ollama_runner import OllamaModelRunner
 
 class ModelFactory:
     """
@@ -11,7 +12,8 @@ class ModelFactory:
     # 模型运行器映射
     _runners: Dict[str, Type[BaseAIModelRunner]] = {
         "NPU": NPURunner,
-        "OPENAI": OpenAIModelRunner
+        "OPENAI": OpenAIModelRunner,
+        "OLLAMA": OllamaModelRunner
     }
     
     @classmethod

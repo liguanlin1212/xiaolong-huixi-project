@@ -195,6 +195,78 @@ python test_ai_integration.py
 3. 在`ModelFactory`中注册新模型
 4. 在配置文件中添加新模型的配置
 
+### Ollama模型集成
+
+本项目已集成Ollama模型支持，使用本地部署的大模型进行文本分类：
+
+#### 配置Ollama模型
+
+在`tfcs_demo/config/ai_config.json`文件中添加Ollama模型配置：
+
+```json
+{
+  "default_model": "NPU",
+  "models": {
+    "NPU": {
+      "type": "NPU"
+    },
+    "OPENAI": {
+      "type": "OPENAI",
+      "api_key": "your_api_key",
+      "model_name": "gpt-4o"
+    },
+    "OLLAMA": {
+      "type": "OLLAMA",
+      "model_name": "qwen3:8b",
+      "base_url": "http://localhost:11434/api",
+      "timeout": 30
+    }
+  }
+}
+```
+
+#### 使用Ollama模型
+
+```python
+from ai.inference.npu_runner import classify_text
+
+# 使用Ollama模型
+ollama_result = classify_text("法院判决他承担刑事责任", model_name="OLLAMA")
+print(ollama_result)  # 输出: {"label": "LEGAL", "confidence": 0.85}
+```
+
+#### 使用模型工厂
+
+```python
+from ai.inference.model_factory import ModelFactory
+from ai.config import AIConfig
+
+config = AIConfig()
+
+# 创建Ollama模型
+ollama_config = config.get_model_config("OLLAMA")
+ollama_runner = ModelFactory.create_runner("OLLAMA", **ollama_config)
+ollama_result = ollama_runner.classify_text("法院判决他承担刑事责任")
+print(ollama_result)  # 输出: {"label": "LEGAL", "confidence": 0.85}
+```
+
+#### 前提条件
+
+使用Ollama模型需要：
+1. 安装并运行Ollama应用程序
+2. 下载所需的模型（如qwen3:8b）
+3. 确保Ollama服务在http://localhost:11434/api可用
+
+#### 故障排除
+
+如果Ollama模型调用失败：
+1. 确保Ollama应用程序正在运行
+2. 验证模型名称是否正确
+3. 检查网络连接和API地址
+4. 查看Ollama应用程序日志
+
+### 添加其他模型
+
 例如，添加Anthropic模型：
 
 ```python
@@ -222,6 +294,7 @@ class ModelFactory:
     _runners = {
         "NPU": NPURunner,
         "OPENAI": OpenAIModelRunner,
+        "OLLAMA": OllamaModelRunner,
         "ANTHROPIC": AnthropicModelRunner
     }
     # 其他代码不变
