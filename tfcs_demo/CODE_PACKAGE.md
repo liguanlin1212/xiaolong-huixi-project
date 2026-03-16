@@ -1,5 +1,7 @@
 # 事实校正系统代码资源包
 
+相关代码已上传GitHub： `https://github.com/liguanlin1212/xiaolong-huixi-project`
+
 ## 资源包结构
 
 ```

@@ -1,5 +1,7 @@
 # 事实校正系统安装指南
 
+相关代码已上传GitHub： `https://github.com/liguanlin1212/xiaolong-huixi-project`
+
 ## 环境要求
 
 - Python 3.8 或更高版本

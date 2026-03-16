@@ -1,5 +1,7 @@
 # 事实校正系统技术文档
 
+相关代码已上传GitHub： `https://github.com/liguanlin1212/xiaolong-huixi-project`
+
 ## 1. 项目概述
 
 事实校正系统（Temporal Fact Correction System）是一个专注于记录和追踪事实判断在时间维度上演变的系统。它不以事件本身为研究对象，而是以围绕事件形成的事实判断、叙事结构、共识性认知，以及这些判断在时间中的被修正过程作为核心记录单元。
